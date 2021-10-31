@@ -1,0 +1,23 @@
+import Head from "next/head";
+import Feed from "../components/Feed";
+import Header from "../components/Header";
+
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen py-2 bg-gray-50 h-screen overflow-y-scroll scrollbar-hide">
+      <Head>
+        <title>Instagram Clone</title>
+        <link
+          rel="icon"
+          href="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401__340.png"
+        />
+      </Head>
+
+      <Header />
+
+      <Feed />
+
+      {/* Modal */}
+    </div>
+  );
+}
