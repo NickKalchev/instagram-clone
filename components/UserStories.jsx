@@ -18,8 +18,8 @@ function UserStories() {
 
 
     return (
-        <div className='flex space-x-3 p-6 bg-white mt-8 border-gray-200 border 
-            rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black scrollbar-thumb-rounded'>
+        <div className='flex space-x-3 p-6 bg-white mt-8 border-gray-200 border scroll
+            rounded-xl overflow-x-scroll scrollbar-thin scrollbar-thumb-black scrollbar-thumb-rounded'>
             {userStories.map(user => (
                 <Story key={user.id} img={user.avatar} name={user.username} />
             ))}

@@ -7,7 +7,7 @@ import { HomeIcon } from '@heroicons/react/solid';
 
 function Header() {
     return (
-        <div className='shadow-sm border-b bg-white sticky top-0 z-99'>
+        <div className='shadow-sm border-b bg-white sticky -top-2 z-99'>
             <div className="flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto"> 
             
                 <div className="relative hidden lg:inline-grid w-48 cursor-pointer">
@@ -38,7 +38,11 @@ function Header() {
                     <UserGroupIcon className='headerButton' />
                     <HeartIcon className='headerButton' />
 
-                    <img className='h-10 rounded-full cursor-pointer hover:scale-110 transition-all duration-150 ease-out' src='https://lh3.googleusercontent.com/a-/AOh14GjIYMwF8PXbhLuAUdVuMIjORvnyuCnXOpTPnOX7=s96-c' alt='profile picture' />
+                    <img className='h-10 rounded-full cursor-pointer hover:scale-110 
+                        transition-all duration-150 ease-out' 
+                        src='https://lh3.googleusercontent.com/a-/AOh14GjIYMwF8PXbhLuAUdVuMIjORvnyuCnXOpTPnOX7=s96-c' 
+                        alt='profile picture' 
+                    />
                 </div>
             </div> 
         </div>

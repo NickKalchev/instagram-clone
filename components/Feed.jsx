@@ -1,4 +1,7 @@
 import React from 'react';
+import Posts from './Posts';
+import SmallProfile from './SmallProfile';
+import Suggestions from './Suggestions';
 import UserStories from './UserStories';
 
 function Feed() {
@@ -7,9 +10,14 @@ function Feed() {
             xl:grid-cols-3 xl:max-w-6xl mx-auto'>
             <section className='col-span-2'>
               <UserStories />
+              <Posts />
             </section>
 
-            <section>
+            <section className='hidden xl:inline-grid md:col-span-1'>
+                <div className="fixed top-18">
+                    <SmallProfile />
+                    <Suggestions />
+                </div>
 
             </section>
         </main>
