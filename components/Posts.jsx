@@ -1,41 +1,28 @@
-import React from 'react';
+import { collection, onSnapshot, orderBy, query } from '@firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebase';
 import Post from './Post';
 
-const posts = [
-    {
-        id: '123',
-        username: 'N!ck',
-        userImg: 'https://lh3.googleusercontent.com/a-/AOh14GjIYMwF8PXbhLuAUdVuMIjORvnyuCnXOpTPnOX7=s96-c',
-        pic: "https://free4kwallpapers.com/uploads/originals/2020/09/20/cool-geometric-triangular-abstract-wallpaper.jpg",
-        headline: "The best logo ever created"
-    },
-    {
-        id: '123',
-        username: 'N!ck',
-        userImg: 'https://lh3.googleusercontent.com/a-/AOh14GjIYMwF8PXbhLuAUdVuMIjORvnyuCnXOpTPnOX7=s96-c',
-        pic: "https://free4kwallpapers.com/uploads/originals/2020/09/20/cool-geometric-triangular-abstract-wallpaper.jpg",
-        headline: "The best logo ever created"
-    },
-    {
-        id: '123',
-        username: 'N!ck',
-        userImg: 'https://lh3.googleusercontent.com/a-/AOh14GjIYMwF8PXbhLuAUdVuMIjORvnyuCnXOpTPnOX7=s96-c',
-        pic: "https://free4kwallpapers.com/uploads/originals/2020/09/20/cool-geometric-triangular-abstract-wallpaper.jpg",
-        headline: "The best logo ever created"
-    }
-]
-
 function Posts() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() =>
+        onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), 
+            snapshot => {
+                setPosts(snapshot.docs);
+            }
+    ), [db]);
+
     return (
         <div>
             {posts.map(post => (
                 <Post 
                 key={post.id} 
                 id={post.id} 
-                username={post.username}
-                userImg={post.userImg}
-                pic={post.pic}
-                headline={post.headline}
+                username={post.data().username}
+                userImg={post.data().profileImg}
+                pic={post.data().image}
+                headline={post.data().caption}
                 />
             ))}
         </div>

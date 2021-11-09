@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Feed from "../components/Feed";
 import Header from "../components/Header";
+import Modal from "../components/Modal";
 
 export default function Home() {
   return (
@@ -12,12 +13,9 @@ export default function Home() {
           href="https://cdn.pixabay.com/photo/2021/06/15/12/17/instagram-6338401__340.png"
         />
       </Head>
-
       <Header />
-
+      <Modal />
       <Feed />
-
-      {/* Modal */}
     </div>
   );
 }

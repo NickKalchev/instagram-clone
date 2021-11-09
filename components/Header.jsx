@@ -6,20 +6,23 @@ import { SearchIcon, PlusCircleIcon, UserGroupIcon, HeartIcon, PaperAirplaneIcon
 import { HomeIcon } from '@heroicons/react/solid';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useRecoilState } from 'recoil';
+import { modalState } from '../atoms/modalAtom';
 
 function Header() {
     const { data: session } = useSession();
     const router = useRouter();
+    const [open, setOpen] = useRecoilState(modalState);
 
     return (
-        <div className='shadow-sm border-b bg-white sticky -top-2 z-99'>
+        <div className='shadow-sm border-b bg-white sticky -top-2 z-999'>
             <div className="flex justify-between bg-white max-w-6xl mx-5 xl:mx-auto"> 
             
-                <div onCLick={() => router.push('/')} className="relative hidden lg:inline-grid w-48 cursor-pointer">
+                <div onClick={() => router.push('/')} className="relative hidden bg-white z-99 lg:inline-grid w-48 cursor-pointer">
                     <Image src={logo} layout='fill' objectFit='contain' />
                 </div>
 
-                <div onCLick={() => router.push('/')} className="relative w-24 lg:hidden flex-shrink-0 ml-2 cursor-pointer">
+                <div onClick={() => router.push('/')} className="relative w-24 lg:hidden flex-shrink-0 ml-2 cursor-pointer">
                     <Image src={mobileLogo} layout='fill' objectFit='contain' />
                 </div>
 
@@ -34,7 +37,7 @@ function Header() {
                 </div>
 
                 <div className="flex items-center justify-end space-x-4">
-                    <HomeIcon onCLick={() => router.push('/')} className='headerButton' />
+                    <HomeIcon onClick={() => router.push('/')} className='headerButton' />
                     <MenuIcon className='h-6 md:hidden cursor-pointer' />
 
                     {session ? (
@@ -46,7 +49,7 @@ function Header() {
                                   3
                             </div>
                             </div>
-                            <PlusCircleIcon className='headerButton' />
+                            <PlusCircleIcon onClick={() => setOpen(true)} className='headerButton' />
                             <UserGroupIcon className='headerButton' />
                             <HeartIcon className='headerButton' />
         
