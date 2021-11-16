@@ -20,4 +20,3 @@ My Instagram clone is a mobile-first app, which makes it fully responsive. I use
 
 
 ![image](https://user-images.githubusercontent.com/85458140/141648910-86210e19-f17e-4e60-954d-aea0c37d01c8.png)
-![image](https://user-images.githubusercontent.com/85458140/141648900-c1554a4b-7487-483f-a54c-971a3d6cdb59.png)
